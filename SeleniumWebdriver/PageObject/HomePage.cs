@@ -13,6 +13,7 @@ namespace SeleniumWebdriver.PageObject
         private static readonly ILog Logger = Log4NetHelper.GetXmlLogger(typeof(HomePage));
         public HomePage()
         {
+            //test
             PageFactory.InitElements(ObjectRepository.Driver, this);
         }
 
