@@ -104,7 +104,7 @@ namespace SeleniumWebdriver.PageObject
             Assert.IsTrue(txtstock.Text.Contains("Currently in stock online"));
             Thread.Sleep(1000);
             btnaddtobasket.ClickAt();
-            Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Assert.IsTrue(statusadded.Text.Contains("Added to your basket:"));
             btngotobasket.ClickAt();
             Thread.Sleep(1000);
