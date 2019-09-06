@@ -11,9 +11,9 @@ Scenario Outline: purchase an item from an online website using Wire
          And I verify Checkout Page deatils
          And I continue As a Guest user 
 	     And fill the mandtory fields <Firstname>,<Lastname >,<PhoneNumber>,<PostCode>,<City> and <AddressLine>
-         And I verify delivery deatils 
+         And I verify delivery details 
          And I Pay using Wire
 		 Then I Verify Order confirmation
-	  Examples: 
+	     Examples: 
          | Firstname | Lastname   | PhoneNumber | PostCode | City    | AddressLine        |
          | Test      | Automation | 7777777777  | 32013    | Florida | Test Address Line1 |

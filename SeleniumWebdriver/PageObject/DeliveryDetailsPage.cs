@@ -25,34 +25,24 @@ namespace SeleniumWebdriver.PageObject
         public IWebElement btnUpdateDeliveryAddress { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#address_invoice span")]
-
         public IWebElement btnInvoiceUpdatebutton { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#address_delivery > .address_firstname")]
-
         public IWebElement getFirstName { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#address_delivery > .address_address1")]
-
         public IWebElement getAddressLine1 { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#address_delivery > .address_city")]
-
         public IWebElement getCity { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "#address_delivery > .address_phone_mobile")]
-
         public IWebElement getphone { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".address_add span")]
-
         public IWebElement btnAddNewAddress { get; set; }
 
-        
-
-        
-
-
+       
         public void deliveryDetails()
         {
             Logger.Info("Selecting delivery date and proceeding to payment page");
@@ -61,12 +51,8 @@ namespace SeleniumWebdriver.PageObject
             Assert.IsTrue(btnAddNewAddress.IsElementVisible());
                     
             Thread.Sleep(3000);
-           
-                       
+                     
         }
        
-
-       
-
     }
 }

@@ -23,116 +23,90 @@ namespace SeleniumWebdriver.PageObject
         }
         
         [FindsBy(How = How.LinkText, Using = "Faded Short Sleeve T-shirts")]
-        
-        public IWebElement productTitle { get; set; }
+         public IWebElement productTitle { get; set; }
+
         [FindsBy(How = How.XPath, Using = "//span[contains(.,'In stock')]")]
+         public IWebElement instocklabel { get; set; }
 
-        public IWebElement instocklabel { get; set; }
         [FindsBy(How = How.XPath, Using = "//td[4]/span/span")]
-
         public IWebElement price { get; set; }
+
         [FindsBy(How = How.Id, Using = "total_price")]
-
-        public IWebElement totalprice { get; set; }
+         public IWebElement totalprice { get; set; }
         
-       [FindsBy(How = How.Id, Using = "total_shipping")]
-
-        public IWebElement deliveryCharge { get; set; }
+        [FindsBy(How = How.Id, Using = "total_shipping")]
+         public IWebElement deliveryCharge { get; set; }
 
         [FindsBy(How = How.LinkText, Using = "Continue shopping")]
-
         public IWebElement btncontinue { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = ".standard-checkout > span")]
-
-        public IWebElement checkOutButton { get; set; }
+         public IWebElement checkOutButton { get; set; }
 
         [FindsBy(How = How.Id, Using = "SubmitCreate")]
-
-        public IWebElement btncontinueasaguest { get; set; }
+         public IWebElement btncontinueasaguest { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//li[contains(.,'Invalid email address.')]")]
-
-        public IWebElement errorMessage { get; set; }
+         public IWebElement errorMessage { get; set; }
 
         [FindsBy(How = How.Id, Using = "email_create")]
-
-        public IWebElement email { get; set; }
-
+         public IWebElement email { get; set; }
 
         [FindsBy(How = How.Id, Using = "id_gender2")]
-
-        public IWebElement txttitle { get; set; }
+         public IWebElement txttitle { get; set; }
 
         [FindsBy(How = How.Id, Using = "customer_firstname")]
-
-        public IWebElement txtfirstname { get; set; }
+         public IWebElement txtfirstname { get; set; }
 
         [FindsBy(How = How.Id, Using = "customer_lastname")]
-
-        public IWebElement txtlastname { get; set; }
+         public IWebElement txtlastname { get; set; }
 
         [FindsBy(How = How.Id, Using = "phone_mobile")]
-
-        public IWebElement txtphonenumber { get; set; }
+         public IWebElement txtphonenumber { get; set; }
 
         [FindsBy(How = How.Id, Using = "postcode")]
-
-        public IWebElement txtsearchpostcode { get; set; }
+         public IWebElement txtsearchpostcode { get; set; }
 
         [FindsBy(How = How.Id, Using = "uniform-id_state")]
-
-        public IWebElement btnfindaddress { get; set; }
+         public IWebElement btnfindaddress { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//option[contains(.,'Florida')]")]
-
-        public IWebElement ddlfindaddress { get; set; }
+         public IWebElement ddlfindaddress { get; set; }
 
         [FindsBy(How = How.Id, Using = "address1")]
-
-        public IWebElement addressline1 { get; set; }
+         public IWebElement addressline1 { get; set; }
 
         [FindsBy(How = How.Id, Using = "passwd")]
+         public IWebElement password { get; set; }
 
-        public IWebElement password { get; set; }
         [FindsBy(How = How.Id, Using = "city")]
-
-        public IWebElement city { get; set; }
+         public IWebElement city { get; set; }
 
         [FindsBy(How = How.Id, Using = "alias")]
-
         public IWebElement alias { get; set; }
 
         [FindsBy(How = How.Id, Using = "email")]
-
         public IWebElement email2 { get; set; }
 
         [FindsBy(How = How.Id, Using = "firstname")]
-
         public IWebElement txtfirstname1 { get; set; }
 
         [FindsBy(How = How.Id, Using = "lastname")]
-
         public IWebElement txtlastname1 { get; set; }
 
         [FindsBy(How = How.XPath, Using = "//button[@id='submitAccount']/span/i")]
-
         public IWebElement btnRegister { get; set; }
 
         [FindsBy(How = How.Id, Using = "id_address_delivery")]
-
         public IWebElement verifyaliasAddress { get; set; }
 
         [FindsBy(How = How.CssSelector, Using = "span.ajax_cart_quantity")]
-
         public IWebElement cartQuantity { get; set; } 
 
         [FindsBy(How = How.Id, Using = "email")]
-
         public IWebElement loginemail { get; set; } 
 
         [FindsBy(How = How.CssSelector, Using = "#SubmitLogin > span")]
-
         public IWebElement btnsignIn { get; set; }
 
 
@@ -140,21 +114,17 @@ namespace SeleniumWebdriver.PageObject
         {
             Logger.Info("Validating Checkout Page");
             Assert.IsTrue(cartQuantity.Text.Contains("1"));
-            Assert.IsTrue(productTitle.Text.Contains("Faded Short Sleeve T-shirts"));
             Assert.IsTrue(instocklabel.IsElementVisible());
-            Assert.IsTrue(price.Text.Contains("$16.51"));
-            Assert.IsTrue(deliveryCharge.Text.Contains("$2.00"));
-            Assert.IsTrue(totalprice.Text.Contains("$18.51"));
             Assert.IsTrue(btncontinue.IsElementVisible());
-            checkOutButton.ClickAt();
-            Thread.Sleep(3000);
-            Assert.IsTrue(btncontinueasaguest.IsElementVisible());
-
+           
         }
 
         public void continueasAGuest()
         {
             Logger.Info("Continue as a guest");
+            checkOutButton.ClickAt();
+            Thread.Sleep(3000);
+            Assert.IsTrue(btncontinueasaguest.IsElementVisible());
             Assert.IsTrue(loginemail.IsElementVisible());
             Assert.IsTrue(btnsignIn.IsElementVisible());
 
@@ -169,14 +139,12 @@ namespace SeleniumWebdriver.PageObject
             btncontinueasaguest.ClickAt();
             Assert.IsTrue(txttitle.IsElementVisible());
             Thread.Sleep(2000);
-           // Assert.IsTrue(email2.Text.Contains(emailId));
-
+       
         }
 
         public void fillDeliveryDetails(string uname ,string lname , string phoneNumber,string Postcode,string cityName ,string address)
         {
             Logger.Info("Filling Mnadatory details of the user");
-            //txttitle.ClickAt();
             txtfirstname.EntertText(uname);
             txtlastname.EntertText(lname);
             password.EntertText("12345");
@@ -194,10 +162,7 @@ namespace SeleniumWebdriver.PageObject
             Thread.Sleep(2000);
             Assert.IsTrue(verifyaliasAddress.Text.Contains("Test Address"));
 
-
-
         }
-
        
     }
 
