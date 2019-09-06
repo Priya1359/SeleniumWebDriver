@@ -15,111 +15,170 @@ namespace SeleniumWebdriver.PageObject
 {
     public class CheckoutPage
     {
+      
         private static readonly ILog Logger = Log4NetHelper.GetXmlLogger(typeof(CheckoutPage));
         public CheckoutPage()
         {
             PageFactory.InitElements(ObjectRepository.Driver, this);
         }
-        [FindsBy(How = How.Id, Using = "email")]
         
-        public IWebElement txtemailaddress { get; set; }
-        [FindsBy(How = How.CssSelector, Using = "h2.product-list-title")]
+        [FindsBy(How = How.LinkText, Using = "Faded Short Sleeve T-shirts")]
         
         public IWebElement productTitle { get; set; }
-        [FindsBy(How = How.CssSelector, Using = "button.remove-basket-item-form-button")]
+        [FindsBy(How = How.XPath, Using = "//span[contains(.,'In stock')]")]
 
-        public IWebElement removebutton { get; set; }
-        [FindsBy(How = How.CssSelector, Using = "p.price")]
+        public IWebElement instocklabel { get; set; }
+        [FindsBy(How = How.XPath, Using = "//td[4]/span/span")]
 
         public IWebElement price { get; set; }
-        [FindsBy(How = How.CssSelector, Using = "span.basket-sub-total")]
+        [FindsBy(How = How.Id, Using = "total_price")]
 
-        public IWebElement totalExcludingdelivery { get; set; }
+        public IWebElement totalprice { get; set; }
+        
+       [FindsBy(How = How.Id, Using = "total_shipping")]
 
+        public IWebElement deliveryCharge { get; set; }
 
-        [FindsBy(How = How.Id, Using = "link-button--basket-continue-securely")]
+        [FindsBy(How = How.LinkText, Using = "Continue shopping")]
 
         public IWebElement btncontinue { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(.,'Guest checkout')]")]
+        [FindsBy(How = How.CssSelector, Using = ".standard-checkout > span")]
 
-        public IWebElement guestcheckoutoption { get; set; }
+        public IWebElement checkOutButton { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(.,'Continue as guest')]")]
+        [FindsBy(How = How.XPath, Using = "//button[@id='SubmitCreate']/span")]
 
         public IWebElement btncontinueasaguest { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "svg.delivery-choice-tile_icon__7c04b")]
+        [FindsBy(How = How.XPath, Using = "//li[contains(.,'Invalid email address.')]")]
 
-        public IWebElement deliverychoice { get; set; }
+        public IWebElement errorMessage { get; set; }
 
-        [FindsBy(How = How.Id, Using = "title")]
+        [FindsBy(How = How.Id, Using = "email_create")]
+
+        public IWebElement email { get; set; }
+
+
+        [FindsBy(How = How.Id, Using = "id_gender2")]
 
         public IWebElement txttitle { get; set; }
 
-        [FindsBy(How = How.Id, Using = "firstName")]
+        [FindsBy(How = How.Id, Using = "customer_firstname")]
 
         public IWebElement txtfirstname { get; set; }
 
-        [FindsBy(How = How.Id, Using = "lastName")]
+        [FindsBy(How = How.Id, Using = "customer_lastname")]
 
         public IWebElement txtlastname { get; set; }
 
-        [FindsBy(How = How.Id, Using = "phoneNumber-number")]
+        [FindsBy(How = How.Id, Using = "phone_mobile")]
 
         public IWebElement txtphonenumber { get; set; }
 
-        [FindsBy(How = How.Id, Using = "searchPostcode")]
+        [FindsBy(How = How.Id, Using = "postcode")]
 
         public IWebElement txtsearchpostcode { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//span[contains(.,'Find address')]")]
+        [FindsBy(How = How.Id, Using = "uniform-id_state")]
 
         public IWebElement btnfindaddress { get; set; }
 
-        [FindsBy(How = How.Id, Using = "addressSearchSelect")]
+        [FindsBy(How = How.XPath, Using = "//option[contains(.,'Florida')]")]
 
-        public IWebElement ddladdresssselct { get; set; }
+        public IWebElement ddlfindaddress { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//button[contains(.,'Use this address')]")] 
+        [FindsBy(How = How.Id, Using = "address1")]
 
-        public IWebElement btnusethisaddress{ get; set; }
+        public IWebElement addressline1 { get; set; }
+
+        [FindsBy(How = How.Id, Using = "passwd")]
+
+        public IWebElement password { get; set; }
+        [FindsBy(How = How.Id, Using = "city")]
+
+        public IWebElement city { get; set; }
+
+        [FindsBy(How = How.Id, Using = "alias")]
+
+        public IWebElement alias { get; set; }
+
+        [FindsBy(How = How.Id, Using = "email")]
+
+        public IWebElement email2 { get; set; }
+
+        [FindsBy(How = How.Id, Using = "firstname")]
+
+        public IWebElement txtfirstname1 { get; set; }
+
+        [FindsBy(How = How.Id, Using = "lastname")]
+
+        public IWebElement txtlastname1 { get; set; }
+
+        [FindsBy(How = How.XPath, Using = "//button[@id='submitAccount']/span/i")]
+
+        public IWebElement btnRegister { get; set; }
+
+        [FindsBy(How = How.Id, Using = "id_address_delivery")]
+
+        public IWebElement verifyaliasAddress { get; set; }
 
 
         public void assertCheckoutpage()
         {
             Logger.Info("Validating Checkout Page");
-            Assert.IsTrue(removebutton.IsElementVisible());
-            Assert.IsTrue(productTitle.Text.Contains("Ted Baker Arycon Small Icon Shopper Bag"));
-            Assert.IsTrue(totalExcludingdelivery.IsElementVisible());
-            Assert.IsTrue(price.Text.Contains("30"));
+            Assert.IsTrue(productTitle.Text.Contains("Faded Short Sleeve T-shirts"));
+            Assert.IsTrue(instocklabel.IsElementVisible());
+            Assert.IsTrue(price.Text.Contains("$16.51"));
+            Assert.IsTrue(deliveryCharge.Text.Contains("$2.00"));
+            Assert.IsTrue(totalprice.Text.Contains("$18.51"));
+            Assert.IsTrue(btncontinue.IsElementVisible());
+            checkOutButton.ClickAt();
+            Thread.Sleep(3000);
+            Assert.IsTrue(btncontinueasaguest.IsElementVisible());
+
         }
 
         public void continueasAGuest()
         {
             Logger.Info("Continue as a guest");
-            btncontinue.ClickAt();
-            guestcheckoutoption.ClickAt();
+            btncontinueasaguest.ClickAt();
+            Assert.IsTrue(errorMessage.Text.Contains("Invalid email address."));
+           
             Random randomGenerator = new Random();
             int randomInt = randomGenerator.Next();
-            txtemailaddress.EntertText("username" + randomInt + "@gmail.com");
+            var emailId = "username" + randomInt + "@gmail.com";
+            email.EntertText(emailId);
+            Console.WriteLine("email ID " + emailId);
             btncontinueasaguest.ClickAt();
-            deliverychoice.ClickAt();
+            Assert.IsTrue(txttitle.IsElementVisible());
+            Thread.Sleep(2000);
+           // Assert.IsTrue(email2.Text.Contains(emailId));
+
         }
 
-        public void fillDeliveryDetails(string title ,string uname ,string lname , string phoneNumber , string Postcode )
+        public void fillDeliveryDetails(string uname ,string lname , string phoneNumber,string Postcode,string cityName ,string address)
         {
             Logger.Info("Filling Mnadatory details of the user");
-            txttitle.EntertText(title);
+            //txttitle.ClickAt();
             txtfirstname.EntertText(uname);
             txtlastname.EntertText(lname);
+            password.EntertText("12345");
+            var FirstName = txtfirstname.GetText();
+            var LastName = txtlastname.GetText();
+            Thread.Sleep(2000);
+            addressline1.EntertText(address);
+            city.EntertText(cityName);
+            btnfindaddress.ClickAt();
+            ddlfindaddress.ClickAt();
             txtphonenumber.EntertText(phoneNumber);
             txtsearchpostcode.EntertText(Postcode);
-            btnfindaddress.ClickAt();
-            ddladdresssselct.SelectDropdown("1");
-            btnusethisaddress.ClickAt();
+            alias.EntertText("Test Address");
+            btnRegister.ClickAt();
+            Thread.Sleep(2000);
+            Assert.IsTrue(verifyaliasAddress.Text.Contains("Test Address"));
 
-           
+
 
         }
 

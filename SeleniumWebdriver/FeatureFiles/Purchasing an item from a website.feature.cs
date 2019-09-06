@@ -19,20 +19,20 @@ namespace SeleniumWebdriver.FeatureFiles
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "1.9.0.77")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
-    public partial class BuyProductfromtheJohnLewisWebsiteFeature
+    public partial class PurchasingAnItemFromAWebsiteFeature
     {
         
         private static TechTalk.SpecFlow.ITestRunner testRunner;
         
-#line 1 "BuyProductfromtheJohnLewisWebsite.feature"
+#line 1 "Purchasing an item from a website.feature"
 #line hidden
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
         public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "BuyProductfromtheJohnLewisWebsite", "In order to buy a product \r\nAs a JohnLewis Customer\r\nI want to Search and Add pro" +
-                    "ct to the Basket", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Purchasing an item from a website", "        In order to buy an item \r\n        As a customer \r\n        I want to creat" +
+                    "e account and proceed to payment using wire", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -47,9 +47,9 @@ namespace SeleniumWebdriver.FeatureFiles
         public virtual void TestInitialize()
         {
             if (((TechTalk.SpecFlow.FeatureContext.Current != null) 
-                        && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "BuyProductfromtheJohnLewisWebsite")))
+                        && (TechTalk.SpecFlow.FeatureContext.Current.FeatureInfo.Title != "Purchasing an item from a website")))
             {
-                SeleniumWebdriver.FeatureFiles.BuyProductfromtheJohnLewisWebsiteFeature.FeatureSetup(null);
+                SeleniumWebdriver.FeatureFiles.PurchasingAnItemFromAWebsiteFeature.FeatureSetup(null);
             }
         }
         
@@ -69,7 +69,7 @@ namespace SeleniumWebdriver.FeatureFiles
             testRunner.CollectScenarioErrors();
         }
         
-        public virtual void SearchAndBuyAProductFromJohnLewisWebsite(string title, string firstname, string lastname, string phoneNumber, string postCode, string[] exampleTags)
+        public virtual void PurchaseAnItemFromAnOnlineWebsiteUsingWire(string firstname, string lastname, string phoneNumber, string postCode, string city, string addressLine, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "mytag"};
@@ -77,42 +77,45 @@ namespace SeleniumWebdriver.FeatureFiles
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
             }
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search and Buy a Product from JohnLewis Website", @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("purchase an item from an online website using Wire", @__tags);
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given("I am on JohnLewis Website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+      testRunner.Given("I have landed on http://automationpractice.com Website", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
- testRunner.When("Search for a product to buy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+         testRunner.When("I Search for a product to buy", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 10
- testRunner.And("I Add product to the check out page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+         testRunner.And("I Add product to the basket", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.And("I verify Checkoutpage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+         testRunner.And("I verify Checkout Page deatils", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
- testRunner.And(string.Format("I continue As a Guest user and fill the mandtory fields {0},{1},{2},{3} and {4}", title, firstname, lastname, phoneNumber, postCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+         testRunner.And("I continue As a Guest user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
- testRunner.And("I choose delivery date and continue to payment page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+      testRunner.And(string.Format("fill the mandtory fields {0},{1},{2},{3},{4} and {5}", firstname, lastname, phoneNumber, postCode, city, addressLine), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 14
- testRunner.Then("I Validate Delivery details and time on Review page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+         testRunner.And("I verify delivery deatils", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 15
- testRunner.And("I take screenshot of the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+         testRunner.And("I Pay using Wire", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 16
+   testRunner.Then("I Verify Order confirmation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Search and Buy a Product from JohnLewis Website")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "BuyProductfromtheJohnLewisWebsite")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("purchase an item from an online website using Wire")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Purchasing an item from a website")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Mr")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Title", "Mr")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("VariantName", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Firstname", "Test")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:Lastname", "Automation")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PhoneNumber", "7777777777")]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PostCode", "EN1 1DD")]
-        public virtual void SearchAndBuyAProductFromJohnLewisWebsite_Mr()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:PostCode", "32013")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:City", "Florida")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("Parameter:AddressLine", "Test Address Line1")]
+        public virtual void PurchaseAnItemFromAnOnlineWebsiteUsingWire_Test()
         {
-            this.SearchAndBuyAProductFromJohnLewisWebsite("Mr", "Test", "Automation", "7777777777", "EN1 1DD", ((string[])(null)));
+            this.PurchaseAnItemFromAnOnlineWebsiteUsingWire("Test", "Automation", "7777777777", "32013", "Florida", "Test Address Line1", ((string[])(null)));
         }
     }
 }

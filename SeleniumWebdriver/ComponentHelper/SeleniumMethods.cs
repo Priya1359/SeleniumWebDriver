@@ -1,4 +1,5 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumWebdriver.Settings;
@@ -16,6 +17,7 @@ namespace SeleniumWebdriver.ComponentHelper
 
         {
             element.WaitforElementtobeClikable(TimeSpan.FromSeconds(10));
+            element.Clear();
             element.SendKeys(value);
 
         }
@@ -94,8 +96,14 @@ namespace SeleniumWebdriver.ComponentHelper
         }
 
         
+        public static void Mouseover(this IWebElement element)
+        {
+            element.WaitforElementtobeClikable(TimeSpan.FromSeconds(10));
+            Actions action = new Actions(ObjectRepository.Driver);
+            action.MoveToElement(element).Perform();
 
-        
+        }
+
 
 
 

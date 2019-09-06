@@ -136,21 +136,22 @@
     <Compile Include="ComponentHelper\SeleniumMethods.cs" />
     <Compile Include="Configuration\AppConfigReader.cs" />
     <Compile Include="Configuration\BrowserType.cs" />
-    <Compile Include="FeatureFiles\BuyProductfromtheJohnLewisWebsite.feature.cs">
+    <Compile Include="FeatureFiles\Purchasing an item from a website.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>BuyProductfromtheJohnLewisWebsite.feature</DependentUpon>
+      <DependentUpon>Purchasing an item from a website.feature</DependentUpon>
     </Compile>
     <Compile Include="GeneralHook\GeneralHook.cs" />
     <Compile Include="Interfaces\IConfig.cs" />
     <Compile Include="PageObject\CheckoutPage.cs" />
     <Compile Include="PageObject\DeliveryDetailsPage.cs" />
     <Compile Include="PageObject\HomePage.cs" />
+    <Compile Include="PageObject\ShippingPage.cs" />
     <Compile Include="Reports\Reporter.cs" />
     <Compile Include="Settings\AppConfigKeys.cs" />
     <Compile Include="Settings\ObjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StepDefinition\BuyProductfromtheJohnLewisWebsite.cs" />
+    <Compile Include="StepDefinition\AddandBuyProduct.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -160,9 +161,9 @@
     <Content Include="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <None Include="FeatureFiles\BuyProductfromtheJohnLewisWebsite.feature">
+    <None Include="FeatureFiles\Purchasing an item from a website.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>BuyProductfromtheJohnLewisWebsite.feature.cs</LastGenOutput>
+      <LastGenOutput>Purchasing an item from a website.feature.cs</LastGenOutput>
     </None>
     <None Include="license" />
     <None Include="NLog.xsd">
