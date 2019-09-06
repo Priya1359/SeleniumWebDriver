@@ -88,10 +88,10 @@ namespace SeleniumWebdriver.PageObject
         [FindsBy(How = How.Id, Using = "layer_cart")]
 
         public IWebElement CheckoutIframe { get; set; }
-        
 
+        [FindsBy(How = How.CssSelector, Using = "span.ajax_cart_no_product")]
 
-
+        public IWebElement cartEmpty { get; set; }
 
 
         public void GetTitleOfThePage()
@@ -106,6 +106,7 @@ namespace SeleniumWebdriver.PageObject
 
         {
             Logger.Info("Search for a product");
+            Assert.IsTrue(cartEmpty.IsElementVisible());
             txtsearchfield.EntertText(value);
             searchButton.ClickAt();
             productsorttype.ClickAt();

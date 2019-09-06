@@ -80,7 +80,7 @@ namespace SeleniumWebdriver.PageObject
 
         public IWebElement txtOrderComplete { get; set; }
 
-        [FindsBy(How = How.CssSelector, Using = "price > strong")]
+        [FindsBy(How = How.Id, Using = "amount")]
 
         public IWebElement confirmPrice { get; set; }
 
@@ -127,11 +127,10 @@ namespace SeleniumWebdriver.PageObject
         {
             Logger.Info("Confirm Payment Details");
             Assert.IsTrue(headingWire.Text.Contains("BANK-WIRE PAYMENT."));
+            Assert.IsTrue(confirmPrice.Text.Contains("$18.51"));
             Assert.IsTrue(btnotherpayments.IsElementVisible());
-            
             btnconfirm.ClickAt();
             Assert.IsTrue(txtOrderComplete.Text.Contains("Your order on My Store is complete."));
-            Assert.IsTrue(confirmPrice.Text.Contains("$18.51"));
             Thread.Sleep(1000);
 
         }

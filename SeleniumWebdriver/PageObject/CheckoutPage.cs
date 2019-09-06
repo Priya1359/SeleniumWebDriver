@@ -47,7 +47,7 @@ namespace SeleniumWebdriver.PageObject
 
         public IWebElement checkOutButton { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//button[@id='SubmitCreate']/span")]
+        [FindsBy(How = How.Id, Using = "SubmitCreate")]
 
         public IWebElement btncontinueasaguest { get; set; }
 
@@ -123,10 +123,23 @@ namespace SeleniumWebdriver.PageObject
 
         public IWebElement verifyaliasAddress { get; set; }
 
+        [FindsBy(How = How.CssSelector, Using = "span.ajax_cart_quantity")]
+
+        public IWebElement cartQuantity { get; set; } 
+
+        [FindsBy(How = How.Id, Using = "email")]
+
+        public IWebElement loginemail { get; set; } 
+
+        [FindsBy(How = How.CssSelector, Using = "#SubmitLogin > span")]
+
+        public IWebElement btnsignIn { get; set; }
+
 
         public void assertCheckoutpage()
         {
             Logger.Info("Validating Checkout Page");
+            Assert.IsTrue(cartQuantity.Text.Contains("1"));
             Assert.IsTrue(productTitle.Text.Contains("Faded Short Sleeve T-shirts"));
             Assert.IsTrue(instocklabel.IsElementVisible());
             Assert.IsTrue(price.Text.Contains("$16.51"));
@@ -142,9 +155,12 @@ namespace SeleniumWebdriver.PageObject
         public void continueasAGuest()
         {
             Logger.Info("Continue as a guest");
+            Assert.IsTrue(loginemail.IsElementVisible());
+            Assert.IsTrue(btnsignIn.IsElementVisible());
+
             btncontinueasaguest.ClickAt();
             Assert.IsTrue(errorMessage.Text.Contains("Invalid email address."));
-           
+          
             Random randomGenerator = new Random();
             int randomInt = randomGenerator.Next();
             var emailId = "username" + randomInt + "@gmail.com";
