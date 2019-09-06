@@ -1,6 +1,8 @@
 
 I have followed Page object Model to write the tests as it is easy to maintain if any ids , xpaths changes in the future.
 
+Technologies : Visual Studio 2017 or any higher version , Specflow , MsTest , C# and Selenium. 
+
 Folder structure : 
 
 Base classes Folder: Contains browser setup and teardown methods.

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 using SeleniumWebdriver.ComponentHelper;
-using OpenQA.Selenium.Support.PageObjects;
+using SeleniumExtras.PageObjects;
 using SeleniumWebdriver.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using log4net;
